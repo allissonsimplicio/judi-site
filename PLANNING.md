@@ -153,16 +153,23 @@ PUBLIC_SUPPORT_EMAIL=suporte@judi.com.br
 
 ## Roadmap
 
-### Fase 1 (Agora)
+### Fase 1 ✅ Concluída (2026-02-03)
 - [x] Setup projeto Astro + Tailwind
-- [ ] Layout base (Header, Footer)
-- [ ] Home page completa
-- [ ] Termos de Uso
-- [ ] Política de Privacidade
-- [ ] Central de Ajuda (estrutura)
+- [x] Layout base (Header, Footer)
+- [x] Home page completa
+- [x] Termos de Uso
+- [x] Política de Privacidade
+- [x] Central de Ajuda (estrutura)
 
-### Fase 2
-- [ ] Conteúdo de ajuda (artigos)
+### Fase 2 🔄 Em Progresso
+- [x] Conteúdo de ajuda - Primeiros Passos (2 artigos)
+- [x] Conteúdo de ajuda - Processos (1 artigo)
+- [x] Conteúdo de ajuda - Intimações (1 artigo)
+- [x] Conteúdo de ajuda - Chat Jurídico (1 artigo)
+- [x] Conteúdo de ajuda - Assinador (1 artigo)
+- [x] Conteúdo de ajuda - Configurações (1 artigo)
+- [ ] Screenshots do CRM para artigos
+- [ ] Artigos restantes (clientes, financeiro, tarefas, etc.)
 - [ ] Busca com Pagefind
 - [ ] Cookie consent banner
 - [ ] PostHog integração

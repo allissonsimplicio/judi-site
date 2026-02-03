@@ -1,0 +1,236 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const categories = [
+  {
+    icon: '🚀',
+    title: 'Primeiros Passos',
+    description: 'Configure sua conta e comece a usar o Judi',
+    slug: 'primeiros-passos',
+    articles: [
+      { title: 'Criando sua conta', slug: 'criando-conta' },
+      { title: 'Configurações iniciais', slug: 'configuracoes-iniciais' },
+      { title: 'Importando dados', slug: 'importando-dados' },
+      { title: 'Navegando pela interface', slug: 'navegacao' },
+    ],
+  },
+  {
+    icon: '👥',
+    title: 'Clientes',
+    description: 'Gerencie sua carteira de clientes',
+    slug: 'clientes',
+    articles: [
+      { title: 'Cadastrando clientes', slug: 'cadastrando-clientes' },
+      { title: 'Organizando clientes', slug: 'organizando-clientes' },
+      { title: 'Portal do cliente', slug: 'portal-cliente' },
+      { title: 'Comunicação com clientes', slug: 'comunicacao' },
+    ],
+  },
+  {
+    icon: '⚖️',
+    title: 'Processos',
+    description: 'Acompanhe e gerencie processos judiciais',
+    slug: 'processos',
+    articles: [
+      { title: 'Cadastrando processos', slug: 'cadastrando-processos' },
+      { title: 'Vinculando clientes', slug: 'vinculando-clientes' },
+      { title: 'Andamentos e movimentações', slug: 'andamentos' },
+      { title: 'Sincronização com tribunais', slug: 'sincronizacao' },
+    ],
+  },
+  {
+    icon: '🔔',
+    title: 'Intimações',
+    description: 'Receba e gerencie intimações',
+    slug: 'intimacoes',
+    articles: [
+      { title: 'Configurando intimações', slug: 'configurando' },
+      { title: 'Análise automática', slug: 'analise-automatica' },
+      { title: 'Prazos e alertas', slug: 'prazos' },
+      { title: 'Ações em lote', slug: 'acoes-lote' },
+    ],
+  },
+  {
+    icon: '📄',
+    title: 'Documentos',
+    description: 'Gerencie e assine documentos',
+    slug: 'documentos',
+    articles: [
+      { title: 'Upload e organização', slug: 'upload-organizacao' },
+      { title: 'Templates de documentos', slug: 'templates' },
+      { title: 'Geração automática', slug: 'geracao-automatica' },
+      { title: 'Assinatura digital', slug: 'assinatura-digital' },
+    ],
+  },
+  {
+    icon: '💰',
+    title: 'Financeiro',
+    description: 'Controle honorários e despesas',
+    slug: 'financeiro',
+    articles: [
+      { title: 'Honorários', slug: 'honorarios' },
+      { title: 'Despesas processuais', slug: 'despesas' },
+      { title: 'Cobranças e recebimentos', slug: 'cobrancas' },
+      { title: 'Relatórios financeiros', slug: 'relatorios' },
+    ],
+  },
+  {
+    icon: '⚙️',
+    title: 'Configurações',
+    description: 'Personalize o Judi para seu escritório',
+    slug: 'configuracoes',
+    articles: [
+      { title: 'Perfil e conta', slug: 'perfil' },
+      { title: 'Usuários e permissões', slug: 'usuarios' },
+      { title: 'Notificações', slug: 'notificacoes' },
+      { title: 'Integrações', slug: 'integracoes' },
+    ],
+  },
+  {
+    icon: '🔒',
+    title: 'Segurança',
+    description: 'Proteja sua conta e dados',
+    slug: 'seguranca',
+    articles: [
+      { title: 'Autenticação em dois fatores', slug: '2fa' },
+      { title: 'Senhas e acesso', slug: 'senhas' },
+      { title: 'Logs de atividade', slug: 'logs' },
+      { title: 'Backup de dados', slug: 'backup' },
+    ],
+  },
+];
+
+const popularArticles = [
+  { title: 'Como criar minha conta?', category: 'primeiros-passos', slug: 'criando-conta' },
+  { title: 'Configurando intimações automáticas', category: 'intimacoes', slug: 'configurando' },
+  { title: 'Como assinar documentos digitalmente?', category: 'documentos', slug: 'assinatura-digital' },
+  { title: 'Sincronizando processos com tribunais', category: 'processos', slug: 'sincronizacao' },
+  { title: 'Gerando relatórios financeiros', category: 'financeiro', slug: 'relatorios' },
+];
+---
+
+<Layout 
+  title="Central de Ajuda"
+  description="Encontre respostas para suas dúvidas sobre o Judi. Tutoriais, guias e documentação completa."
+>
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary to-primary-dark py-16">
+    <div class="container-wide text-center text-white">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Como podemos ajudar?</h1>
+      <p class="text-xl text-primary-100 mb-8">
+        Encontre respostas, tutoriais e guias para usar o Judi
+      </p>
+      
+      <!-- Search -->
+      <div class="max-w-2xl mx-auto">
+        <div class="relative">
+          <input 
+            type="search" 
+            id="search-input"
+            placeholder="Buscar na Central de Ajuda..."
+            class="w-full px-6 py-4 pl-14 rounded-xl text-lg text-primary-900 placeholder-primary-400 focus:outline-none focus:ring-4 focus:ring-white/30"
+          />
+          <svg 
+            class="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-primary-400"
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+        <p class="text-sm text-primary-200 mt-3">
+          Ex: "como cadastrar cliente", "assinatura digital", "intimações"
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Articles -->
+  <section class="py-12 bg-white border-b border-primary-100">
+    <div class="container-wide">
+      <h2 class="text-lg font-semibold text-primary mb-4">Artigos populares</h2>
+      <div class="flex flex-wrap gap-3">
+        {popularArticles.map(article => (
+          <a 
+            href={`/ajuda/${article.category}/${article.slug}`}
+            class="px-4 py-2 bg-primary-50 hover:bg-primary-100 text-primary-700 rounded-full text-sm transition-colors"
+          >
+            {article.title}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="section bg-background">
+    <div class="container-wide">
+      <h2 class="text-2xl font-bold text-primary mb-8">Explorar por categoria</h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {categories.map(category => (
+          <div class="card hover:-translate-y-1">
+            <div class="text-3xl mb-3">{category.icon}</div>
+            <h3 class="text-lg font-bold text-primary mb-2">{category.title}</h3>
+            <p class="text-sm text-primary-500 mb-4">{category.description}</p>
+            <ul class="space-y-2">
+              {category.articles.slice(0, 3).map(article => (
+                <li>
+                  <a 
+                    href={`/ajuda/${category.slug}/${article.slug}`}
+                    class="text-sm text-primary-600 hover:text-primary hover:underline"
+                  >
+                    {article.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            {category.articles.length > 3 && (
+              <a 
+                href={`/ajuda/${category.slug}`}
+                class="inline-block mt-4 text-sm font-medium text-primary hover:underline"
+              >
+                Ver todos →
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Support -->
+  <section class="section bg-white">
+    <div class="container-narrow text-center">
+      <h2 class="text-2xl font-bold text-primary mb-4">Não encontrou o que procurava?</h2>
+      <p class="text-primary-600 mb-8">
+        Nossa equipe de suporte está pronta para ajudar você.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="mailto:suporte@judi.com.br" class="btn-primary">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          Enviar Email
+        </a>
+        <a href="/contato" class="btn-secondary">
+          Falar com Suporte
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Placeholder para busca - será integrado com Pagefind
+  const searchInput = document.getElementById('search-input');
+  searchInput?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      const query = (e.target as HTMLInputElement).value;
+      if (query.trim()) {
+        window.location.href = `/ajuda/busca?q=${encodeURIComponent(query)}`;
+      }
+    }
+  });
+</script>

@@ -1,0 +1,90 @@
+---
+const currentYear = new Date().getFullYear();
+const appUrl = import.meta.env.PUBLIC_APP_URL || 'https://app.judi.com.br';
+
+const footerLinks = {
+  produto: [
+    { href: '/#features', label: 'Funcionalidades' },
+    { href: '/#pricing', label: 'Planos' },
+    { href: '/ajuda', label: 'Central de Ajuda' },
+  ],
+  empresa: [
+    { href: '/sobre', label: 'Sobre Nós' },
+    { href: '/contato', label: 'Contato' },
+  ],
+  legal: [
+    { href: '/termos', label: 'Termos de Uso' },
+    { href: '/privacidade', label: 'Política de Privacidade' },
+  ],
+};
+---
+
+<footer class="bg-primary-900 text-white">
+  <div class="container-wide section">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+      <!-- Brand -->
+      <div class="col-span-2 md:col-span-1">
+        <a href="/" class="flex items-center gap-2 mb-4">
+          <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+            <span class="text-primary font-bold text-xl">J</span>
+          </div>
+          <span class="text-2xl font-bold">Judi</span>
+        </a>
+        <p class="text-primary-200 text-sm">
+          CRM completo para advogados e escritórios de advocacia.
+        </p>
+      </div>
+
+      <!-- Produto -->
+      <div>
+        <h4 class="font-semibold mb-4">Produto</h4>
+        <ul class="space-y-2">
+          {footerLinks.produto.map(link => (
+            <li>
+              <a href={link.href} class="text-primary-200 hover:text-white transition-colors text-sm">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Empresa -->
+      <div>
+        <h4 class="font-semibold mb-4">Empresa</h4>
+        <ul class="space-y-2">
+          {footerLinks.empresa.map(link => (
+            <li>
+              <a href={link.href} class="text-primary-200 hover:text-white transition-colors text-sm">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div>
+        <h4 class="font-semibold mb-4">Legal</h4>
+        <ul class="space-y-2">
+          {footerLinks.legal.map(link => (
+            <li>
+              <a href={link.href} class="text-primary-200 hover:text-white transition-colors text-sm">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <hr class="border-primary-700 my-8" />
+
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-primary-300">
+      <p>&copy; {currentYear} Judi. Todos os direitos reservados.</p>
+      <p>
+        Feito com ❤️ para advogados brasileiros
+      </p>
+    </div>
+  </div>
+</footer>

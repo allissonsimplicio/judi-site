@@ -1,0 +1,268 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const appUrl = import.meta.env.PUBLIC_APP_URL || 'https://app.judi.com.br';
+
+const features = [
+  {
+    icon: '👥',
+    title: 'Gestão de Clientes',
+    description: 'Cadastro completo, histórico de atendimentos, documentos e comunicações em um só lugar.',
+  },
+  {
+    icon: '⚖️',
+    title: 'Controle de Processos',
+    description: 'Acompanhe todos os processos, prazos, andamentos e vincule clientes automaticamente.',
+  },
+  {
+    icon: '🔔',
+    title: 'Intimações Inteligentes',
+    description: 'Receba e gerencie intimações com análise automática de prazos e urgências.',
+  },
+  {
+    icon: '📄',
+    title: 'Documentos e Assinatura',
+    description: 'Gere documentos a partir de templates e colete assinaturas digitais com validade jurídica.',
+  },
+  {
+    icon: '💰',
+    title: 'Financeiro',
+    description: 'Controle honorários, despesas processuais, cobranças e relatórios financeiros.',
+  },
+  {
+    icon: '🤖',
+    title: 'Inteligência Artificial',
+    description: 'Análise de documentos, sugestões de peças e automação de tarefas repetitivas.',
+  },
+];
+
+const plans = [
+  {
+    name: 'Básico',
+    price: 'Grátis',
+    period: 'para sempre',
+    description: 'Ideal para advogados autônomos iniciantes',
+    features: [
+      'Até 50 clientes',
+      'Até 30 processos',
+      'Gestão de documentos',
+      'Agenda básica',
+    ],
+    cta: 'Começar Grátis',
+    highlighted: false,
+  },
+  {
+    name: 'Profissional',
+    price: 'R$ 97',
+    period: '/mês',
+    description: 'Para advogados estabelecidos',
+    features: [
+      'Clientes ilimitados',
+      'Processos ilimitados',
+      'Intimações automáticas',
+      'Assinatura digital',
+      'Relatórios avançados',
+      'Suporte prioritário',
+    ],
+    cta: 'Iniciar Teste Grátis',
+    highlighted: true,
+  },
+  {
+    name: 'Escritório',
+    price: 'R$ 297',
+    period: '/mês',
+    description: 'Para escritórios com equipe',
+    features: [
+      'Tudo do Profissional',
+      'Até 10 usuários',
+      'Gestão de equipe',
+      'Permissões personalizadas',
+      'API de integração',
+      'Onboarding dedicado',
+    ],
+    cta: 'Falar com Vendas',
+    highlighted: false,
+  },
+];
+
+const faqs = [
+  {
+    question: 'Posso testar antes de assinar?',
+    answer: 'Sim! O plano Básico é gratuito para sempre. Você também pode testar o plano Profissional por 14 dias sem compromisso.',
+  },
+  {
+    question: 'Meus dados estão seguros?',
+    answer: 'Absolutamente. Utilizamos criptografia de ponta, servidores seguros e seguimos todas as normas da LGPD. Seus dados e de seus clientes estão protegidos.',
+  },
+  {
+    question: 'Posso cancelar a qualquer momento?',
+    answer: 'Sim, sem multas ou burocracia. Você pode cancelar sua assinatura a qualquer momento pelo próprio sistema.',
+  },
+  {
+    question: 'Vocês oferecem suporte?',
+    answer: 'Sim! Temos suporte por email para todos os planos, suporte prioritário para o plano Profissional e suporte dedicado para Escritórios.',
+  },
+];
+---
+
+<Layout title="CRM para Advogados">
+  <!-- Hero -->
+  <section class="section bg-gradient-to-br from-background via-white to-primary-50">
+    <div class="container-wide">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary mb-6 animate-fade-in-up">
+          Gerencie seu escritório de advocacia com
+          <span class="gradient-text"> inteligência</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-primary-600 mb-8 animate-fade-in-up" style="animation-delay: 0.1s">
+          Clientes, processos, intimações, documentos e financeiro em uma única plataforma. 
+          Feito por advogados, para advogados.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.2s">
+          <a href={`${appUrl}/register`} class="btn-primary btn-large">
+            Começar Grátis
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+          <a href="#features" class="btn-secondary btn-large">
+            Ver Funcionalidades
+          </a>
+        </div>
+        <p class="mt-6 text-sm text-primary-400 animate-fade-in" style="animation-delay: 0.3s">
+          ✓ Sem cartão de crédito &nbsp; ✓ Setup em 2 minutos &nbsp; ✓ Suporte em português
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="section bg-white">
+    <div class="container-wide">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+          Tudo que você precisa em um só lugar
+        </h2>
+        <p class="text-xl text-primary-600 max-w-2xl mx-auto">
+          Pare de usar planilhas e sistemas desconectados. O Judi integra todas as áreas do seu escritório.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {features.map((feature, i) => (
+          <div 
+            class="card hover:-translate-y-1"
+            style={`animation-delay: ${i * 0.1}s`}
+          >
+            <div class="text-4xl mb-4">{feature.icon}</div>
+            <h3 class="text-xl font-bold text-primary mb-2">{feature.title}</h3>
+            <p class="text-primary-600">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="section bg-background">
+    <div class="container-wide">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+          Planos que cabem no seu bolso
+        </h2>
+        <p class="text-xl text-primary-600 max-w-2xl mx-auto">
+          Comece grátis e evolua conforme seu escritório cresce.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {plans.map((plan) => (
+          <div 
+            class={`card relative ${plan.highlighted ? 'border-2 border-primary ring-4 ring-primary/20' : ''}`}
+          >
+            {plan.highlighted && (
+              <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+                <span class="bg-primary text-white text-sm font-semibold px-4 py-1 rounded-full">
+                  Mais Popular
+                </span>
+              </div>
+            )}
+            <div class="text-center mb-6">
+              <h3 class="text-xl font-bold text-primary mb-2">{plan.name}</h3>
+              <div class="flex items-baseline justify-center gap-1">
+                <span class="text-4xl font-extrabold text-primary">{plan.price}</span>
+                <span class="text-primary-500">{plan.period}</span>
+              </div>
+              <p class="text-sm text-primary-500 mt-2">{plan.description}</p>
+            </div>
+            <ul class="space-y-3 mb-8">
+              {plan.features.map((feature) => (
+                <li class="flex items-start gap-2 text-primary-700">
+                  <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            <a 
+              href={`${appUrl}/register`}
+              class={`btn w-full ${plan.highlighted ? 'btn-primary' : 'btn-secondary'}`}
+            >
+              {plan.cta}
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section bg-white">
+    <div class="container-narrow">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+          Perguntas Frequentes
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <details class="group card cursor-pointer">
+            <summary class="flex items-center justify-between font-semibold text-primary list-none">
+              {faq.question}
+              <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="mt-4 text-primary-600">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="/ajuda" class="text-primary font-medium hover:underline">
+          Ver todas as perguntas →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="section bg-primary">
+    <div class="container-narrow text-center text-white">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Pronto para transformar seu escritório?
+      </h2>
+      <p class="text-xl text-primary-100 mb-8">
+        Junte-se a centenas de advogados que já usam o Judi para organizar suas rotinas.
+      </p>
+      <a href={`${appUrl}/register`} class="btn bg-white text-primary hover:bg-primary-50 btn-large">
+        Criar Conta Grátis
+        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </a>
+    </div>
+  </section>
+</Layout>

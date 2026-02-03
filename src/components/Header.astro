@@ -1,0 +1,88 @@
+---
+const navLinks = [
+  { href: '/#features', label: 'Funcionalidades' },
+  { href: '/#pricing', label: 'Planos' },
+  { href: '/ajuda', label: 'Ajuda' },
+];
+
+const appUrl = import.meta.env.PUBLIC_APP_URL || 'https://app.judi.com.br';
+---
+
+<header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-primary-100">
+  <nav class="container-wide">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 group">
+        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+          <span class="text-white font-bold text-xl">J</span>
+        </div>
+        <span class="text-2xl font-bold text-primary group-hover:text-primary-dark transition-colors">
+          Judi
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-8">
+        {navLinks.map(link => (
+          <a 
+            href={link.href}
+            class="text-primary-600 hover:text-primary font-medium transition-colors"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="hidden md:flex items-center gap-4">
+        <a href={`${appUrl}/login`} class="text-primary font-medium hover:text-primary-dark transition-colors">
+          Entrar
+        </a>
+        <a href={`${appUrl}/register`} class="btn-primary">
+          Começar Grátis
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button 
+        id="mobile-menu-btn"
+        class="md:hidden p-2 text-primary hover:bg-primary-50 rounded-lg transition-colors"
+        aria-label="Abrir menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-primary-100">
+    <div class="container-wide py-4 space-y-4">
+      {navLinks.map(link => (
+        <a 
+          href={link.href}
+          class="block text-primary-600 hover:text-primary font-medium py-2"
+        >
+          {link.label}
+        </a>
+      ))}
+      <hr class="border-primary-100" />
+      <a href={`${appUrl}/login`} class="block text-primary font-medium py-2">
+        Entrar
+      </a>
+      <a href={`${appUrl}/register`} class="btn-primary w-full text-center">
+        Começar Grátis
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>
